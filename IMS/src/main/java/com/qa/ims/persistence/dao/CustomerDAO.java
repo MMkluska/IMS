@@ -20,10 +20,10 @@ public class CustomerDAO implements Dao<Customer> {
 
 	@Override
 	public Customer modelFromResultSet(ResultSet resultSet) throws SQLException {
-		Long customer_id = resultSet.getLong("customer_id");
+		Long customerId = resultSet.getLong("customer_id");
 		String firstName = resultSet.getString("first_name");
 		String lastName = resultSet.getString("last_name");
-		return new Customer(customer_id, firstName, lastName);
+		return new Customer(customerId, firstName, lastName);
 	}
 
 	/**
@@ -89,11 +89,11 @@ public class CustomerDAO implements Dao<Customer> {
 	}
 
 	@Override
-	public Customer read(Long customer_id) {
+	public Customer read(Long customerId) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
 						.prepareStatement("SELECT * FROM Customers WHERE customer_id = ?");) {
-			statement.setLong(1, customer_id);
+			statement.setLong(1, customerId);
 			try (ResultSet resultSet = statement.executeQuery();) {
 				resultSet.next();
 				return modelFromResultSet(resultSet);
@@ -135,11 +135,11 @@ public class CustomerDAO implements Dao<Customer> {
 	 * @param customer_id - customer_id of the customer
 	 */
 	@Override
-	public int delete(long customer_id) {
+	public int delete(long customerId) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
 						.prepareStatement("DELETE FROM Customers WHERE customer_id = ?");) {
-			statement.setLong(1, customer_id);
+			statement.setLong(1, customerId);
 			return statement.executeUpdate();
 		} catch (Exception e) {
 			LOGGER.debug(e);
