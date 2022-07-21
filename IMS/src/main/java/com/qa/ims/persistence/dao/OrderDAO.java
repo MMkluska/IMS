@@ -123,6 +123,8 @@ public class OrderDAO implements Dao<Order> {
 		}
 		return null;
 	}
+	
+
 
 	/**
 	 * Deletes an order in the database
@@ -132,7 +134,8 @@ public class OrderDAO implements Dao<Order> {
 	@Override
 	public int delete(long orderId) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement("DELETE FROM Orders WHERE order_id = ?");) {
+				PreparedStatement statement = connection.prepareStatement(
+						"DELETE r FROM Orders o LEFT JOIN Requests r on o.order_id = r.fk_order_id WHERE o.order_ID = ?;");) {
 			statement.setLong(1, orderId);
 			return statement.executeUpdate();
 		} catch (Exception e) {
@@ -141,5 +144,6 @@ public class OrderDAO implements Dao<Order> {
 		}
 		return 0;
 	}
+	
 
 }
