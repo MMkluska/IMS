@@ -35,7 +35,7 @@ public class OrderController implements CrudController<Order> {
 	@Override
 	public List<Order> readAll() {
 		LOGGER.info(
-				"Do you want to view orders database, requests database or total price of specific order? orders/requests/price");
+				"Do you want to view orders database, requests database or total price of specific order? Orders/Requests/Price");
 		String choose = utils.getString();
 		switch (choose.toLowerCase()) {
 
@@ -93,8 +93,8 @@ public class OrderController implements CrudController<Order> {
 	 */
 	@Override
 	public Order update() {
-		
-		LOGGER.info("Would you like to update customer ID or add item to an order?Customer/Item");
+
+		LOGGER.info("Would you like to update customer ID or add item to an order? Customer/Item");
 		String choiceSwitch = utils.getString();
 		LOGGER.info("Please enter the ID of the order you would like to update");
 		Long id = utils.getLong();
@@ -122,7 +122,7 @@ public class OrderController implements CrudController<Order> {
 				}
 
 			} while (addItem);
-				return null;
+			return null;
 		default:
 			LOGGER.info("Wrong operator!");
 			break;
@@ -135,11 +135,35 @@ public class OrderController implements CrudController<Order> {
 	 * 
 	 * @return
 	 */
+		
 	@Override
 	public int delete() {
-		LOGGER.info("Please enter the ID of the order you would like to delete");
+		LOGGER.info("Please enter your order ID");
 		Long id = utils.getLong();
-		return orderDAO.delete(id);
-	}
+		LOGGER.info("Would you like to delete an item from an order or an entire order? Item/Order");
+		String choice = utils.getString();
+		
+		switch (choice.toLowerCase()) {
+		
+		case "item":
+			
+			reqCont.delete(id);
+			LOGGER.info("Item deleted"); 
+			break;
+			
+		case "order":
+			
+			orderDAO.delete(id);
+			LOGGER.info("Order deleted"); 
+			break;
+			
+		default:
+			LOGGER.info("Wrong operator!");
+			break;
+		}
+		return 0;
+		
+			
+}
 
 }
