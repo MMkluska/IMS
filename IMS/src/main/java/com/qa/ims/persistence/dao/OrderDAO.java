@@ -68,7 +68,7 @@ public class OrderDAO implements Dao<Order> {
 	/**
 	 * Creates an order in the database
 	 * 
-	 * @param customer id - takes in an order object. order_id will be ignored
+	 * @param order - takes in an order object. order_id will be ignored
 	 */
 	@Override
 	public Order create(Order order) {
@@ -106,7 +106,6 @@ public class OrderDAO implements Dao<Order> {
 	 * 
 	 * @param order - takes in a order object, the order_id field will be used to
 	 *              update that order in the database
-	 * @return
 	 */
 	@Override
 	public Order update(Order order) {
@@ -123,13 +122,11 @@ public class OrderDAO implements Dao<Order> {
 		}
 		return null;
 	}
-	
-
 
 	/**
 	 * Deletes an order in the database
 	 * 
-	 * @param orderId - order_id of the customer
+	 * @param orderId - order_id of the order
 	 */
 	@Override
 	public int delete(long orderId) {
@@ -144,6 +141,5 @@ public class OrderDAO implements Dao<Order> {
 		}
 		return 0;
 	}
-	
 
 }

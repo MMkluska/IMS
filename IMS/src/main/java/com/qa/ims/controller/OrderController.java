@@ -11,7 +11,7 @@ import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.Utils;
 
 /**
- * Takes in Order details for CRUD functionality
+ * Takes in order details for CRUD functionality
  *
  */
 public class OrderController implements CrudController<Order> {
@@ -30,7 +30,7 @@ public class OrderController implements CrudController<Order> {
 	}
 
 	/**
-	 * Reads all Orders or Requests to the logger
+	 * Reads all orders, requests, total price to the logger
 	 */
 	@Override
 	public List<Order> readAll() {
@@ -53,7 +53,7 @@ public class OrderController implements CrudController<Order> {
 
 		case "price":
 
-			LOGGER.info("Please enter an order ID");
+			LOGGER.info("Please enter an order ID: ");
 			Long orderId = utils.getLong();
 			LOGGER.info(requestDAO.totalPrice(orderId).toStringCost());
 			return null;
@@ -72,7 +72,7 @@ public class OrderController implements CrudController<Order> {
 	@Override
 	public Order create() {
 		boolean addItem = true;
-		LOGGER.info("Please enter a customer ID");
+		LOGGER.info("Please enter a customer ID: ");
 		Long customerId = utils.getLong();
 		Order order = orderDAO.create(new Order(customerId));
 		while (addItem) {
@@ -84,7 +84,7 @@ public class OrderController implements CrudController<Order> {
 				addItem = false;
 			}
 		}
-		LOGGER.info("Order created");
+		LOGGER.info("Order created.");
 		return order;
 	}
 
@@ -96,16 +96,16 @@ public class OrderController implements CrudController<Order> {
 
 		LOGGER.info("Would you like to update customer ID or add item to an order? Customer/Item");
 		String choiceSwitch = utils.getString();
-		LOGGER.info("Please enter the ID of the order you would like to update");
+		LOGGER.info("Please enter the ID of the order you would like to update: ");
 		Long id = utils.getLong();
 
 		switch (choiceSwitch.toLowerCase()) {
 		case "customer":
 
-			LOGGER.info("Please enter a customer ID");
+			LOGGER.info("Please enter a customer ID: ");
 			long customerId = utils.getLong();
 			Order order = orderDAO.update(new Order(id, customerId));
-			LOGGER.info("Order Updated");
+			LOGGER.info("Order Updated.");
 			return order;
 
 		case "item":
@@ -135,35 +135,34 @@ public class OrderController implements CrudController<Order> {
 	 * 
 	 * @return
 	 */
-		
+
 	@Override
 	public int delete() {
-		LOGGER.info("Please enter your order ID");
+		LOGGER.info("Please enter your order ID: ");
 		Long id = utils.getLong();
 		LOGGER.info("Would you like to delete an item from an order or an entire order? Item/Order");
 		String choice = utils.getString();
-		
+
 		switch (choice.toLowerCase()) {
-		
+
 		case "item":
-			
+
 			reqCont.delete(id);
-			LOGGER.info("Item deleted"); 
+			LOGGER.info("Item deleted.");
 			break;
-			
+
 		case "order":
-			
+
 			orderDAO.delete(id);
-			LOGGER.info("Order deleted"); 
+			LOGGER.info("Order deleted.");
 			break;
-			
+
 		default:
 			LOGGER.info("Wrong operator!");
 			break;
 		}
 		return 0;
-		
-			
-}
+
+	}
 
 }

@@ -10,7 +10,7 @@ import com.qa.ims.persistence.domain.Request;
 import com.qa.ims.utils.Utils;
 
 /**
- * Takes in customer details for CRUD functionality
+ * Takes in request details for CRUD functionality
  *
  */
 public class RequestController implements CrudController<Request> {
@@ -26,7 +26,7 @@ public class RequestController implements CrudController<Request> {
 	}
 
 	/**
-	 * Reads all customers to the logger
+	 * Reads all requests to the logger
 	 */
 	@Override
 	public List<Request> readAll() {
@@ -38,7 +38,7 @@ public class RequestController implements CrudController<Request> {
 	}
 
 	/**
-	 * Creates an request by taking in user input
+	 * Dead method, must be implemented from CrudController<>
 	 */
 	@Override
 	public Request create() {
@@ -46,13 +46,16 @@ public class RequestController implements CrudController<Request> {
 
 	}
 
+	/**
+	 * Creates an request by taking in user input
+	 */
 	public Request create(Long orderId) {
-		LOGGER.info("Please enter a product ID you wish to add");
+		LOGGER.info("Please enter a product ID you wish to add: ");
 		Long productId = utils.getLong();
-		LOGGER.info("Please enter a quantity you wish to have");
+		LOGGER.info("Please enter a quantity you wish to have: ");
 		Long quantity = utils.getLong();
 		Request request = requestDAO.create(new Request(orderId, productId, quantity));
-		LOGGER.info("Item/s Added.");
+		LOGGER.info("Item/s added.");
 
 		return request;
 	}
@@ -75,15 +78,18 @@ public class RequestController implements CrudController<Request> {
 	}
 
 	/**
-	 * Deletes an existing request by the id of the request
-	 * 
-	 * @return
+	 * Dead method, must be implemented from CrudController<>
 	 */
 	@Override
 	public int delete() {
 		return 0;
 	}
 
+	/**
+	 * Deletes an existing request by the id of the order
+	 * 
+	 * @return
+	 */
 	public int delete(Long orderID) {
 		LOGGER.info("Enter the item ID you would like to delete from order " + orderID + "?");
 		Long productID = utils.getLong();

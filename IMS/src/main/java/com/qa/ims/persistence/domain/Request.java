@@ -1,7 +1,7 @@
 package com.qa.ims.persistence.domain;
 
 public class Request {
-	
+
 	private Long id;
 	private Long orderId;
 	private Long itemId;
@@ -20,7 +20,7 @@ public class Request {
 		this.setItemId(itemId);
 		this.setQuantity(quantity);
 	}
-	
+
 	public Request(Double orderPrice) {
 		this.orderPrice = orderPrice;
 	}
@@ -32,7 +32,7 @@ public class Request {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Long getOrderId() {
 		return orderId;
 	}
@@ -41,7 +41,6 @@ public class Request {
 		this.orderId = orderId;
 	}
 
-
 	public Long getItemId() {
 		return itemId;
 	}
@@ -49,7 +48,7 @@ public class Request {
 	public void setItemId(Long itemId) {
 		this.itemId = itemId;
 	}
-	
+
 	public Long getQuantity() {
 		return quantity;
 	}
@@ -57,8 +56,7 @@ public class Request {
 	public void setQuantity(Long quantity) {
 		this.quantity = quantity;
 	}
-	
-	
+
 	public double getOrderPrice() {
 		return orderPrice;
 	}
@@ -71,11 +69,11 @@ public class Request {
 	public String toString() {
 		return "Request ID: " + id + " Order ID: " + orderId + " Item ID: " + itemId + " Quantity " + quantity;
 	}
-	
+
 	public String toStringCost() {
 		return ("Total price is : " + orderPrice);
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

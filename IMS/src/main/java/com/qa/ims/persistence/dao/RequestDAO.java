@@ -26,15 +26,18 @@ public class RequestDAO implements Dao<Request> {
 		return new Request(requestId, orderId, itemId, quantity);
 	}
 
+	/**
+	 * Separate model for printing out total price
+	 */
 	public Request modelFromResultSet2(ResultSet resultSet) throws SQLException {
 		Double orderPrice = resultSet.getDouble("Total Price");
 		return new Request(orderPrice);
 	}
 
 	/**
-	 * Reads all orders from the database
+	 * Reads all requests from the database
 	 * 
-	 * @return A list of orders
+	 * @return A list of requests
 	 */
 	@Override
 	public List<Request> readAll() {
@@ -54,7 +57,7 @@ public class RequestDAO implements Dao<Request> {
 	}
 
 	/**
-	 * Reads last order from the database
+	 * Reads last request from the database
 	 * 
 	 * @return An order
 	 */
@@ -72,6 +75,11 @@ public class RequestDAO implements Dao<Request> {
 		return null;
 	}
 
+	/**
+	 * Calculates a total price for a specific order ID
+	 * 
+	 * @return A total price
+	 */
 	public Request totalPrice(Long orderId) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
@@ -89,13 +97,11 @@ public class RequestDAO implements Dao<Request> {
 		}
 		return null;
 	}
-	
-	
 
 	/**
-	 * Creates an order in the database
+	 * Creates a request in the database
 	 * 
-	 * @param customer id - takes in an order object. order_id will be ignored
+	 * @param request id - takes in an request object. request_id will be ignored
 	 */
 	@Override
 	public Request create(Request request) {
@@ -132,10 +138,10 @@ public class RequestDAO implements Dao<Request> {
 	}
 
 	/**
-	 * Updates an order in the database
+	 * Updates a request in the database
 	 * 
-	 * @param order - takes in a order object, the order_id field will be used to
-	 *              update that order in the database
+	 * @param request - takes in a request object, the request_id field will be used
+	 *                to update that request in the database
 	 * @return
 	 */
 	@Override
@@ -157,20 +163,25 @@ public class RequestDAO implements Dao<Request> {
 	}
 
 	/**
-	 * Deletes an order in the database
-	 * 
-	 * @param orderId - order_id of the customer
+	 * Dead method, must be implemented from Dao<>
 	 */
 	@Override
 	public int delete(long requestId) {
 		return 0;
 	}
-	
-	public int delete(Long orderID, Long productID) {
+
+	/**
+	 * Deletes a request/s in the database
+	 * 
+	 * @param orderId - fk_order_id of the request
+	 * @param itemId  - fk_item_id of the request
+	 */
+	public int delete(Long orderId, Long itemId) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection.prepareStatement("DELETE FROM Requests WHERE fk_order_id = ? and fk_item_id = ?");) {
-			statement.setLong(1, orderID);
-			statement.setLong(2, productID);
+				PreparedStatement statement = connection
+						.prepareStatement("DELETE FROM Requests WHERE fk_order_id = ? and fk_item_id = ?");) {
+			statement.setLong(1, orderId);
+			statement.setLong(2, itemId);
 			return statement.executeUpdate();
 		} catch (Exception e) {
 			LOGGER.debug(e);
