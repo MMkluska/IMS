@@ -6,11 +6,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.qa.ims.persistence.dao.OrderDAO;
+import com.qa.ims.persistence.dao.RequestDAO;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.Utils;
 
 /**
- * Takes in customer details for CRUD functionality
+ * Takes in Order details for CRUD functionality
  *
  */
 public class OrderController implements CrudController<Order> {
@@ -18,7 +19,9 @@ public class OrderController implements CrudController<Order> {
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	private OrderDAO orderDAO;
-	private Utils utils;
+	private Utils utils = new Utils();
+	private RequestDAO requestDAO = new RequestDAO();
+	RequestController reqCont = new RequestController(requestDAO, utils);
 
 	public OrderController(OrderDAO orderDAO, Utils utils) {
 		super();
@@ -27,15 +30,40 @@ public class OrderController implements CrudController<Order> {
 	}
 
 	/**
-	 * Reads all customers to the logger
+	 * Reads all Orders or Requests to the logger
 	 */
 	@Override
 	public List<Order> readAll() {
-		List<Order> orders = orderDAO.readAll();
-		for (Order order : orders) {
-			LOGGER.info(order);
+		LOGGER.info(
+				"Do you want to view orders database, requests database or total price of specific order? orders/requests/price");
+		String choose = utils.getString();
+		switch (choose) {
+		
+		case "orders":
+			List<Order> orders = orderDAO.readAll();
+			for (Order order : orders) {
+				LOGGER.info(order);
+			}
+			return orders;
+
+		case "requests":
+
+			reqCont.readAll();			
+			return null;
+			
+		case "price":
+			
+			LOGGER.info("Please enter an order ID");
+			Long orderId = utils.getLong();
+			LOGGER.info(requestDAO.totalPrice(orderId).toStringCost());
+			return null;
+			
+		default:
+			LOGGER.info("Wrong operator!");
+			break;
 		}
-		return orders;
+
+		return null;
 	}
 
 	/**
@@ -43,19 +71,30 @@ public class OrderController implements CrudController<Order> {
 	 */
 	@Override
 	public Order create() {
+		boolean addItem = true;
 		LOGGER.info("Please enter a customer ID");
-		long customerId = utils.getLong();
+		Long customerId = utils.getLong();
 		Order order = orderDAO.create(new Order(customerId));
+		while (addItem) {
+			LOGGER.info("Do you want to add an item to the order? Yes/No");
+			String choice = utils.getString();
+			if (choice.toLowerCase().equals("yes")) {
+				reqCont.create(customerId);
+			} else { 
+				addItem = false;
+			}
+		}
 		LOGGER.info("Order created");
 		return order;
-	}
+	}	
+	
 
 	/**
 	 * Updates an existing order by taking in user input
 	 */
 	@Override
 	public Order update() {
-		LOGGER.info("Please enter the id of the order you would like to update");
+		LOGGER.info("Please enter the ID of the order you would like to update");
 		Long id = utils.getLong();
 		LOGGER.info("Please enter a customer ID");
 		long customerId = utils.getLong();
@@ -71,7 +110,7 @@ public class OrderController implements CrudController<Order> {
 	 */
 	@Override
 	public int delete() {
-		LOGGER.info("Please enter the id of the order you would like to delete");
+		LOGGER.info("Please enter the ID of the order you would like to delete");
 		Long id = utils.getLong();
 		return orderDAO.delete(id);
 	}
