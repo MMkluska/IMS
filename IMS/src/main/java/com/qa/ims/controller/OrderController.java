@@ -37,8 +37,8 @@ public class OrderController implements CrudController<Order> {
 		LOGGER.info(
 				"Do you want to view orders database, requests database or total price of specific order? orders/requests/price");
 		String choose = utils.getString();
-		switch (choose) {
-		
+		switch (choose.toLowerCase()) {
+
 		case "orders":
 			List<Order> orders = orderDAO.readAll();
 			for (Order order : orders) {
@@ -48,16 +48,16 @@ public class OrderController implements CrudController<Order> {
 
 		case "requests":
 
-			reqCont.readAll();			
+			reqCont.readAll();
 			return null;
-			
+
 		case "price":
-			
+
 			LOGGER.info("Please enter an order ID");
 			Long orderId = utils.getLong();
 			LOGGER.info(requestDAO.totalPrice(orderId).toStringCost());
 			return null;
-			
+
 		default:
 			LOGGER.info("Wrong operator!");
 			break;
@@ -76,31 +76,58 @@ public class OrderController implements CrudController<Order> {
 		Long customerId = utils.getLong();
 		Order order = orderDAO.create(new Order(customerId));
 		while (addItem) {
-			LOGGER.info("Do you want to add an item to the order? Yes/No");
+			LOGGER.info("Do you want to add an item to the order? Yes?");
 			String choice = utils.getString();
 			if (choice.toLowerCase().equals("yes")) {
-				reqCont.create(customerId);
-			} else { 
+				reqCont.create(order.getId());
+			} else {
 				addItem = false;
 			}
 		}
 		LOGGER.info("Order created");
 		return order;
-	}	
-	
+	}
 
 	/**
 	 * Updates an existing order by taking in user input
 	 */
 	@Override
 	public Order update() {
+		
+		LOGGER.info("Would you like to update customer ID or add item to an order?Customer/Item");
+		String choiceSwitch = utils.getString();
 		LOGGER.info("Please enter the ID of the order you would like to update");
 		Long id = utils.getLong();
-		LOGGER.info("Please enter a customer ID");
-		long customerId = utils.getLong();
-		Order order = orderDAO.update(new Order(id, customerId));
-		LOGGER.info("Order Updated");
-		return order;
+
+		switch (choiceSwitch.toLowerCase()) {
+		case "customer":
+
+			LOGGER.info("Please enter a customer ID");
+			long customerId = utils.getLong();
+			Order order = orderDAO.update(new Order(id, customerId));
+			LOGGER.info("Order Updated");
+			return order;
+
+		case "item":
+			boolean addItem = true;
+			do {
+				reqCont.create(id);
+
+				LOGGER.info("Do you want to add an item to the order? Yes?");
+				String choice = utils.getString();
+				if (choice.toLowerCase().equals("yes")) {
+					addItem = true;
+				} else {
+					addItem = false;
+				}
+
+			} while (addItem);
+				return null;
+		default:
+			LOGGER.info("Wrong operator!");
+			break;
+		}
+		return null;
 	}
 
 	/**

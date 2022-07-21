@@ -54,7 +54,7 @@ public class RequestController implements CrudController<Request> {
 		Long quantity = utils.getLong();
 		Request request = requestDAO.create(new Request(orderId, productId, quantity));
 		LOGGER.info("Item/s Added.");
-		LOGGER.info("Total cost of your order : " + requestDAO.totalPrice(orderId));
+		
 	
 
 		return request;
@@ -63,18 +63,32 @@ public class RequestController implements CrudController<Request> {
 	/**
 	 * Updates an existing request by taking in user input
 	 */
+//	@Override
+//	public Request update() {
+//		LOGGER.info("Please enter the ID of the request you would like to update");
+//		Long id = utils.getLong();
+//		LOGGER.info("Please enter an order ID");
+//		Long orderId = utils.getLong();
+//		LOGGER.info("Please enter an item ID");
+//		Long itemId = utils.getLong();
+//		LOGGER.info("Please enter quantity");
+//		Long quantity = utils.getLong();
+//		Request request = requestDAO.update(new Request(id, orderId, itemId, quantity));
+//		LOGGER.info("Request Updated");
+//		return request;
+//	}
+//	
 	@Override
 	public Request update() {
-		LOGGER.info("Please enter the ID of the request you would like to update");
-		Long id = utils.getLong();
-		LOGGER.info("Please enter an order ID");
+
+		LOGGER.info("Please enter ID of the order you would like to change");
 		Long orderId = utils.getLong();
-		LOGGER.info("Please enter an item ID");
+		LOGGER.info("Please enter item ID");
 		Long itemId = utils.getLong();
 		LOGGER.info("Please enter quantity");
 		Long quantity = utils.getLong();
-		Request request = requestDAO.update(new Request(id, orderId, itemId, quantity));
-		LOGGER.info("Request Updated");
+		Request request = requestDAO.update(new Request(orderId, itemId, quantity));
+		LOGGER.info("Order Updated");
 		return request;
 	}
 
