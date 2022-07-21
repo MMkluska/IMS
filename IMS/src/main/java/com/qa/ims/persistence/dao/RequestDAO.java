@@ -75,8 +75,8 @@ public class RequestDAO implements Dao<Request> {
 	public Request totalPrice(Long orderId) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("SELECT sum(item_value*quantity) as `Total Price` FROM orders o \r\n"
-								+ "LEFT JOIN requests r ON o.order_id = r.fk_order_id\r\n"
+						.prepareStatement("SELECT sum(item_value*quantity) as `Total Price` FROM orders o "
+								+ "LEFT JOIN requests r ON o.order_id = r.fk_order_id "
 								+ "LEFT JOIN items i ON i.item_id = r.fk_item_id WHERE o.order_id = ?");) {
 			statement.setLong(1, orderId);
 			try (ResultSet resultSet = statement.executeQuery();) {
@@ -163,10 +163,14 @@ public class RequestDAO implements Dao<Request> {
 	 */
 	@Override
 	public int delete(long requestId) {
+		return 0;
+	}
+	
+	public int delete(Long orderID, Long productID) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection
-						.prepareStatement("DELETE FROM Requests WHERE request_id = ?");) {
-			statement.setLong(1, requestId);
+				PreparedStatement statement = connection.prepareStatement("DELETE FROM Requests WHERE fk_order_id = ? and fk_item_id = ?");) {
+			statement.setLong(1, orderID);
+			statement.setLong(2, productID);
 			return statement.executeUpdate();
 		} catch (Exception e) {
 			LOGGER.debug(e);

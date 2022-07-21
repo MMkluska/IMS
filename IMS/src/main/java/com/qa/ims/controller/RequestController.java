@@ -19,7 +19,7 @@ public class RequestController implements CrudController<Request> {
 
 	private RequestDAO requestDAO;
 	private Utils utils;
-	
+
 	public RequestController(RequestDAO requestDAO, Utils utils) {
 		this.requestDAO = requestDAO;
 		this.utils = utils;
@@ -37,14 +37,13 @@ public class RequestController implements CrudController<Request> {
 		return requests;
 	}
 
-	
 	/**
 	 * Creates an request by taking in user input
 	 */
 	@Override
 	public Request create() {
 		return null;
-	
+
 	}
 
 	public Request create(Long orderId) {
@@ -54,8 +53,6 @@ public class RequestController implements CrudController<Request> {
 		Long quantity = utils.getLong();
 		Request request = requestDAO.create(new Request(orderId, productId, quantity));
 		LOGGER.info("Item/s Added.");
-		
-	
 
 		return request;
 	}
@@ -63,21 +60,6 @@ public class RequestController implements CrudController<Request> {
 	/**
 	 * Updates an existing request by taking in user input
 	 */
-//	@Override
-//	public Request update() {
-//		LOGGER.info("Please enter the ID of the request you would like to update");
-//		Long id = utils.getLong();
-//		LOGGER.info("Please enter an order ID");
-//		Long orderId = utils.getLong();
-//		LOGGER.info("Please enter an item ID");
-//		Long itemId = utils.getLong();
-//		LOGGER.info("Please enter quantity");
-//		Long quantity = utils.getLong();
-//		Request request = requestDAO.update(new Request(id, orderId, itemId, quantity));
-//		LOGGER.info("Request Updated");
-//		return request;
-//	}
-//	
 	@Override
 	public Request update() {
 
@@ -99,11 +81,13 @@ public class RequestController implements CrudController<Request> {
 	 */
 	@Override
 	public int delete() {
-		LOGGER.info("Please enter the id of the request you would like to delete");
-		Long id = utils.getLong();
-		return requestDAO.delete(id);
+		return 0;
 	}
 
-	
+	public int delete(Long orderID) {
+		LOGGER.info("Enter the item ID you would like to delete from order " + orderID + "?");
+		Long productID = utils.getLong();
+		return requestDAO.delete(orderID, productID);
+	}
 
 }
