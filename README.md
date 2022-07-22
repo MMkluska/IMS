@@ -3,6 +3,10 @@ Coverage: 82,2%
 
   A simple Java code to operate MySQL database in comand line interface. It allows to edit customers, items and orders.  
 
+## User stories and Sprints 
+
+* [Jira](https://mmkluska.atlassian.net/jira/software/projects/IMS/boards/2) - Agile Project Management
+
 ## Getting Started
 
 1. Fork this repository
