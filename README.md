@@ -77,6 +77,7 @@ A unit is the smallest whole increment, from which this testing gets its name. I
 
 ## Built With
 
+* [Jira](https://mmkluska.atlassian.net/jira/software/projects/IMS/boards/2) - Agile Project Management
 * [Maven](https://maven.apache.org/) - Dependency Management
 
 ## Versioning
