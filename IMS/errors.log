@@ -1,0 +1,132 @@
+20220722 00:28:27 DEBUG [main] dao.OrderDAO OrderDAO.java120 - java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`ims`.`orders`, CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`fk_customer_id`) REFERENCES `customers` (`customer_id`))
+20220722 00:28:27 ERROR [main] dao.OrderDAO OrderDAO.java121 - Cannot add or update a child row: a foreign key constraint fails (`ims`.`orders`, CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`fk_customer_id`) REFERENCES `customers` (`customer_id`))
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.OrderDAO OrderDAO.java62 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.OrderDAO OrderDAO.java63 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.OrderDAO OrderDAO.java98 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.OrderDAO OrderDAO.java99 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.OrderDAO OrderDAO.java44 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.OrderDAO OrderDAO.java45 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.OrderDAO OrderDAO.java82 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.OrderDAO OrderDAO.java83 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.OrderDAO OrderDAO.java139 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.OrderDAO OrderDAO.java140 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.OrderDAO OrderDAO.java120 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.OrderDAO OrderDAO.java121 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.RequestDAO RequestDAO.java95 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.RequestDAO RequestDAO.java96 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.RequestDAO RequestDAO.java72 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.RequestDAO RequestDAO.java73 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.RequestDAO RequestDAO.java134 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.RequestDAO RequestDAO.java135 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.RequestDAO RequestDAO.java53 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.RequestDAO RequestDAO.java54 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.RequestDAO RequestDAO.java117 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.RequestDAO RequestDAO.java118 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.RequestDAO RequestDAO.java159 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.RequestDAO RequestDAO.java160 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.ItemDAO ItemDAO.java63 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.ItemDAO ItemDAO.java64 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.ItemDAO ItemDAO.java100 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.ItemDAO ItemDAO.java101 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.ItemDAO ItemDAO.java45 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.ItemDAO ItemDAO.java46 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.ItemDAO ItemDAO.java84 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.ItemDAO ItemDAO.java85 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.ItemDAO ItemDAO.java142 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.ItemDAO ItemDAO.java143 - No suitable driver found for 
+20220722 00:28:27 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 DEBUG [main] dao.ItemDAO ItemDAO.java124 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:27 ERROR [main] dao.ItemDAO ItemDAO.java125 - No suitable driver found for 
+20220722 00:28:28 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:28 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 DEBUG [main] dao.CustomerDAO CustomerDAO.java64 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 ERROR [main] dao.CustomerDAO CustomerDAO.java65 - No suitable driver found for 
+20220722 00:28:28 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:28 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 DEBUG [main] dao.CustomerDAO CustomerDAO.java102 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 ERROR [main] dao.CustomerDAO CustomerDAO.java103 - No suitable driver found for 
+20220722 00:28:28 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:28 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 DEBUG [main] dao.CustomerDAO CustomerDAO.java45 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 ERROR [main] dao.CustomerDAO CustomerDAO.java46 - No suitable driver found for 
+20220722 00:28:28 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:28 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 DEBUG [main] dao.CustomerDAO CustomerDAO.java85 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 ERROR [main] dao.CustomerDAO CustomerDAO.java86 - No suitable driver found for 
+20220722 00:28:28 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:28 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 DEBUG [main] dao.CustomerDAO CustomerDAO.java145 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 ERROR [main] dao.CustomerDAO CustomerDAO.java146 - No suitable driver found for 
+20220722 00:28:28 ERROR [main] utils.DBUtils DBUtils.java31 - java.lang.NullPointerException: inStream parameter is null
+20220722 00:28:28 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 DEBUG [main] utils.DBUtils DBUtils.java67 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 DEBUG [main] dao.CustomerDAO CustomerDAO.java126 - java.sql.SQLException: No suitable driver found for 
+20220722 00:28:28 ERROR [main] dao.CustomerDAO CustomerDAO.java127 - No suitable driver found for 
+20220722 00:28:29 DEBUG [main] dao.CustomerDAO CustomerDAO.java145 - java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`ims`.`orders`, CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`fk_customer_id`) REFERENCES `customers` (`customer_id`))
+20220722 00:28:29 ERROR [main] dao.CustomerDAO CustomerDAO.java146 - Cannot delete or update a parent row: a foreign key constraint fails (`ims`.`orders`, CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`fk_customer_id`) REFERENCES `customers` (`customer_id`))
+20220722 00:28:30 DEBUG [main] dao.ItemDAO ItemDAO.java142 - java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`ims`.`requests`, CONSTRAINT `requests_ibfk_2` FOREIGN KEY (`fk_item_id`) REFERENCES `items` (`item_id`))
+20220722 00:28:30 ERROR [main] dao.ItemDAO ItemDAO.java143 - Cannot delete or update a parent row: a foreign key constraint fails (`ims`.`requests`, CONSTRAINT `requests_ibfk_2` FOREIGN KEY (`fk_item_id`) REFERENCES `items` (`item_id`))
